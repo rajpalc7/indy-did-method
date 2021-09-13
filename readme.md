@@ -1,6 +1,8 @@
 # Indy DID Method
 
-This repository contains the source for the Indy DID Method specification. The initial content was transferred from a [collaborative HackMD document](https://hackmd.io/2IKUPROnRXW57Lmal_SGaQ).
+[![Open in Gitpod](https://gitpod.io/button/open-in-gitpod.svg)](https://gitpod.io/#https://github.com/hyperledger/indy-did-method)
+
+This repository contains the source for the Indy DID Method specification. The initital content was transferred from a [collaborative HackMD document](https://hackmd.io/2IKUPROnRXW57Lmal_SGaQ).
 
 The current version of the spec is rendered here: [https://hyperledger.github.io/indy-did-method/](https://hyperledger.github.io/indy-did-method/)
 
@@ -23,6 +25,16 @@ renders for the full specification (`docs/index.html`) to the `gh-pages` branch 
 published from there. If there is a way to .gitignore the `index.html` in the main branch but not in the `gh-pages` branch, please let us know.
 
 Hint: One way to revert the updated `docs/index.html` before doing a commit, is to run: `git checkout -- docs/index.html`
+
+### Editing the spec in the cloud with Gitpod
+
+An alternative way to contribute to the specification, without any local installation, is to use [Gitpod](https://www.gitpod.io/).
+- Fork the repo. 
+- Open `https://gitpod.io/#https://github.com/YOUR_FORK_USER/indy-did-method`
+- Register with Gitpod using your GitHub Account and provide `public_repo` permissions in order to commit to your fork from Gitpod.
+- You'll see a prepared VSCode workspace with two windows. To the left, you can edit the markdown files in the `/spec` folder. To the right, you'll see the rendered spec.
+- You can create a new branch and commit and push your changes using a terminal or the source control plugin to the left.
+- Then, you can create a pull request from Github.
 
 ## Community Links
 
