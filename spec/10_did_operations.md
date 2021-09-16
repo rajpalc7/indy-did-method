@@ -14,7 +14,7 @@ Creation of a `did:indy` DID is performed by an authorized entity executing a `N
 
 - The [[ref: NYM]] transaction requires that the transaction to be written is signed by the DID controller. The ledger MUST verify the signature using the [[ref: NYM]] `verkey`. If the signature can not be validated, the transaction MUST be rejected and an error returned to the client.
 
-- The Indy ledger MUST check that the data in the [[ref: NYM]] produces valid JSON and MUST do a limited DIDDoc validation check prior to writing the [[ref: NYM]] object to the ledger. Details of the assembly and verification are [below](#DIDDoc-Assembly-and-Verification). If the DIDDoc validation fails, the transaction MUST be rejected and an error returned to the client.
+- The Indy ledger MUST check that the data in the [[ref: NYM]] produces valid JSON and MUST do a limited DIDDoc validation check prior to writing the [[ref: NYM]] object to the ledger. Details of the assembly and verification are [below](#diddoc-assembly-and-verification). If the DIDDoc validation fails, the transaction MUST be rejected and an error returned to the client.
 
 Although the DIDDoc is returned from the DIDDoc assembly and verification process, the DIDDoc is not used further by the ledger.
 
@@ -98,7 +98,7 @@ Assuming values `sovrin` for the `namespace`, `123456` for `dest` and `789abc` f
 An example of a [[ref: NYM]]'s extended DIDDoc handling is provided below. In the example below, the `diddocContent` item adds a DIDcomm Messaging service endpoint to the resolved DIDDoc. Note that in the example, an `@context` item is included in the `diddocContent`, which causes the result DIDDoc to be a JSON-LD document, rather than plain JSON.
 
 ::: example Extended DIDDoc Item example
-```jsonld
+```json
 "diddocContent" : {
     "@context" : [ 
         "https://www.w3.org/ns/did/v1",
@@ -120,7 +120,7 @@ An example of a [[ref: NYM]]'s extended DIDDoc handling is provided below. In th
 Applying the DIDDoc assembly rules to the example above produces the following assembled, valid JSON-LD DIDDoc:
 
 ::: example assembled Extended JSON-LD DIDDoc Item  example
-```jsonld
+```json
 {
   "@context": [
     "https://www.w3.org/ns/did/v1",
@@ -193,7 +193,7 @@ The following validation steps are performed prior to the update being written t
 
 - The [[ref: NYM]] transaction requires that the transaction to be written is signed by the DID controller using the existing `verkey` and, if a new `verkey` is being provided, the new `verkey`. The ledger MUST verify the signature(s). If the signature(s) cannot be validated, the transaction MUST be rejected and an error returned to the client.
 
-- The Indy ledger MUST check that the data in the [[ref: NYM]] produces valid JSON and MUST do a limited DIDDoc validation check prior to writing the [[ref: NYM]] object to the ledger. Details of the assembly and verification are [below](#DIDDoc-Assembly-and-Verification). If the DIDDoc validation fails, the transaction MUST be rejected and an error returned to the client.
+- The Indy ledger MUST check that the data in the [[ref: NYM]] produces valid JSON and MUST do a limited DIDDoc validation check prior to writing the [[ref: NYM]] object to the ledger. Details of the assembly and verification are [here](#diddoc-assembly-and-verification). If the DIDDoc validation fails, the transaction MUST be rejected and an error returned to the client.
 
 Although the DIDDoc is returned from the DIDDoc assembly and verification process, the DIDDoc is not used further by the ledger.
 
@@ -207,14 +207,14 @@ Reading (resolving) a `did:indy` DID requires finding and connecting to the Indy
 
 1. Given a `did:indy` DID, extract the `<namespace>` component of the DID.
 2. If the namespace (specific Indy instance) is known to the resolver and the resolver is connected to the ledger continue. If not:
-    1. To read the DIDDoc, the client must get the genesis file for the Indy instance and connect to the ledger. For example, the guidance in the [finding Indy ledgers](9_finding_indy_ledgers.md#Finding-Indy-Ledgers) can be used to discover previously unknown Indy ledgers.
+    1. To read the DIDDoc, the client must get the genesis file for the Indy instance and connect to the ledger. For example, the guidance in the [finding Indy ledgers](#finding-indy-ledgers) can be used to discover previously unknown Indy ledgers.
     2. If the client cannot find the Indy network terminate the process and return a "Not Found" status to the caller.
     3. If the client chooses not to connect to the Indy network terminate the process and return a "Not Authorized" status to the caller.
 3. Once connected, the `GET_NYM` Indy request is used, passing in the `<namespace identifer>` component.
-    1. If resolving a prior version of the DID, a different call is used in at this point. See the [DID Versions](#DID-Versions) section of this document (below) for more details.
+    1. If resolving a prior version of the DID, a different call is used in at this point. See the [DID Versions](#did-versions) section of this document (below) for more details.
 4. If the call fails, terminate the process and return a "Not Found" status to the caller.
 5. If a [[ref: NYM]] is returned, use the state proof to verify the result. If the verification fails, terminate the process and return a "Not Found" status to the caller.
-6. Use the DID `<namespace>` component, the [[ref: NYM]] data items `dest`, `verkey`, and (optional) `diddocContent` to assemble the DIDDoc using the [DIDDoc assembly process](#DIDDoc-Assembly-and-Verification) defined earlier in this document.
+6. Use the DID `<namespace>` component, the [[ref: NYM]] data items `dest`, `verkey`, and (optional) `diddocContent` to assemble the DIDDoc using the [DIDDoc assembly process](#diddoc-assembly-and-verification) defined earlier in this document.
     1. Since the assembly validation was done by the ledger before writing the document, the process should be successful.
 7. If the DIDDoc is empty (because the `verkey` is null) return a "Not Found" result, otherwise, return the DIDDoc.
 
@@ -229,7 +229,7 @@ If the parameter `versionTime` is used, the `GET_NYM` transaction is called with
 ### Deactivate
 
 Deactivtion of a `did:indy` DID is done by setting the [[ref: NYM]] verkey to null. Once done, the DIDDoc is not found (per 
-the [DIDDoc Assembly Rules](#DIDDoc-Assembly-Steps)) and the [[ref: NYM]] cannot be updated again.
+the [DIDDoc Assembly Rules](#diddoc-assembly-steps)) and the [[ref: NYM]] cannot be updated again.
 
 ::: warning dead link
 section `#diddoc-assembly-rules` does not exist. Pointing to `#DIDDoc-Assembly-Steps`

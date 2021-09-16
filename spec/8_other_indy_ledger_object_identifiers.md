@@ -36,7 +36,7 @@ Existing identifier: `F72i3Y3Q4i466efjYJYCHM:2:npdb:4.3.4`
 - `npdb` is the client-defined schema name
 - `4.3.4` is the client-defined tag for the [[ref: SCHEMA]]
 
-#### Claim Def:
+#### Claim Def
 
 DID URL: [`did:indy:sovrin:5nDyJVP1NrcPAttP3xwMB9/CLAIM_DEF/npdb`](https://indyscan.io/tx/SOVRIN_MAINNET/domain/56496)
 
@@ -51,7 +51,7 @@ Existing identifier: `did:indy:sovrin:5nDyJVP1NrcPAttP3xwMB9:3:CL:56495:npdb`
 
 Note that the DID URL format adds a constraint on the client-defined claim def name from the `did:sov` DID Method. Specifically, the same named claim def can no longer be associated with different [[ref: SCHEMA]] objects.
 
-#### Revocation Registry Definition:
+#### Revocation Registry Definition
 
 DID URL: [`did:indy:sovrin:5nDyJVP1NrcPAttP3xwMB9/REV_REG_DEF/npdb/TAG1`](https://indyscan.io/tx/SOVRIN_MAINNET/domain/56497)
 
@@ -63,7 +63,7 @@ Existing Identifier: `5nDyJVP1NrcPAttP3xwMB9:4:5nDyJVP1NrcPAttP3xwMB9:3:CL:56495
 - `5nDyJVP1NrcPAttP3xwMB9:3:CL:56495:npdb` is the identifier of the associated Claim Def
 -  `TAG1` is the client-defined rev reg name
 
-#### Revocation Registry Entry:
+#### Revocation Registry Entry
 
 DID URL: [did:indy:sovrin:5nDyJVP1NrcPAttP3xwMB9/REV_REG_ENTRY/npdb/TAG1](https://indyscan.io/tx/SOVRIN_MAINNET/domain/58567)
 
@@ -81,7 +81,7 @@ Existing Identifier: `5:5nDyJVP1NrcPAttP3xwMB9:4:5nDyJVP1NrcPAttP3xwMB9:3:CL:564
 - `5` is the enumerated object type
 - The remainder of the identifier is the identifier for the applicable Revocation Registry
 
-#### ATTRIB:
+#### ATTRIB
 
 DID URL: [`did:indy:sovrin:5nDyJVP1NrcPAttP3xwMB9/ATTRIB/<raw>`](https://indyscan.io/tx/SOVRIN_MAINNET/domain/54743), where `<raw>` is the name of the JSON object that is the value of the `raw` [[ref: ATTRIB]] value. In the example linked at the start of this paragraph, the `<raw>` value would be `endpoint`.
 

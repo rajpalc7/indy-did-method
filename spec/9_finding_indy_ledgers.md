@@ -24,7 +24,7 @@ The committers to the repo for each network SHOULD include in the folder at leas
 
 #### Client Usage
 
-A client may retrieve selected network genesis files from the repo to use as their set of static files, as described in the [previous section](#Static). The developers of the clients can monitor the repo for changes to the genesis files that they are using.
+A client may retrieve selected network genesis files from the repo to use as their set of static files, as described in the [previous section](#static). The developers of the clients can monitor the repo for changes to the genesis files that they are using.
 
 If a DID is obtained by the client that is from a network not already known by the client, the client MAY look for the unknown (to the client) network in the GitHub repo and decide to use (or not) the associated genesis file to connect to the network.
 

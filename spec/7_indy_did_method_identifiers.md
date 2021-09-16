@@ -7,7 +7,7 @@ The did:indy Method DID identifier has four components that are concatonated to 
 - **DID Indy Namespace**: a string that identifies the name of the primary Indy ledger, followed by a `:`. The namespace string may optionally have a secondary ledger name prefixed by a `:` following the primary name. If there is no secondary ledger element, the DID resides on the primary ledger, else it resides on the secondary ledger. By convention, the primary is a production ledger while the secondary ledgers are non-production ledgers (e.g. staging, test, development) associated with the primary ledger. Examples include, `sovrin`, `sovrin:staging` and `idunion`.
 - **Namespace Identifier**: a self-certifying identifier unique to the given DID Indy namespace. To be 
   self-certifying the identifier must be derived from the initial verkey associated with the identifier. See the 
-  [DID Creation](10_did_operations.md#Creation) section of this document for the derivation details.
+  [DID Creation](#creation) section of this document for the derivation details.
 
 The components are assembled as follows:
 

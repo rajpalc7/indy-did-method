@@ -11,7 +11,7 @@ The `did:indy` DID Namespace component MUST include a primary, human-friendly na
     namestring    = ALPHA *(ALPHA / DIGIT / "_" / "-")
 
 The namespace is set by the operator of the network. Although that could lead to namespace collisions, our 
-[assumption about the expected number of Indy instances](6_motivation_and_assumptions.md#Assumption:-Number-of-Indy-Instances) (low 100s at the most) eliminates that as a concern.
+[assumption about the expected number of Indy instances](#assumption-number-of-indy-instances) (low 100s at the most) eliminates that as a concern.
 
 ### `did:indy` DID Namespace Identifier Syntax
 
@@ -28,4 +28,4 @@ The namespace identifier (NSID) is defined by the following ABNF:
 
 The `NSIDString` is base58 encoded using the Bitcoin/IPFS alphabets of a 16-byte uuid. The encoding uses most alphas and digits, omitting 0 / O / I / l to avoid readability problems. This gives a NSID length of either 21 or 22 characters, and it means that identifiers are case-sensitive and may not be case-normalized, even though the prefix is always lower-case.
 
-The namespace identifier MUST be derived from the initial `verkey` for the DID, as outlined in the [Creation](10_did_operations.md#Creation) section of this document.
+The namespace identifier MUST be derived from the initial `verkey` for the DID, as outlined in the [Creation](#creation) section of this document.
