@@ -10,7 +10,7 @@ Indy DID Method
 **Editors:**
 
 - [Stephen Curran](https://github.com/swcurran)
-- Paul Bastian
+- [Paul Bastian](https://github.com/paulbastian)
 - [Daniel Hardman](https://github.com/dhh1128)
 
 <!-- -->
