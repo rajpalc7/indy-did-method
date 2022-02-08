@@ -106,20 +106,20 @@ An example of a [[ref: NYM]]'s extended DIDDoc handling is provided below. In th
 ::: example Extended DIDDoc Item example
 ```json
 "diddocContent" : {
-    "@context" : [ 
-        "https://www.w3.org/ns/did/v1",
-        "https://identity.foundation/didcomm-messaging/service-endpoint/v1"
-    ],
-    "serviceEndpoint": [
-        {
-          "id": "did:indy:sovrin:123456#didcomm",
-          "type": "didcomm-messaging",
-          "serviceEndpoint": "https://example.com",
-          "recipientKeys": [ "#verkey" ],
-          "routingKeys": [ ]
-        }
-    ]
-  }
+  "@context" : [
+      "https://www.w3.org/ns/did/v1",
+      "https://identity.foundation/didcomm-messaging/service-endpoint/v1"
+  ],
+  "service": [
+    {
+      "id": "did:indy:sovrin:123456#didcomm",
+      "type": "didcomm-messaging",
+      "serviceEndpoint": "https://example.com",
+      "recipientKeys": [ "#verkey" ],
+      "routingKeys": [ ]
+    }
+  ]
+}
 ```
 :::
 
@@ -143,7 +143,7 @@ Applying the DIDDoc assembly rules to the example above produces the following a
   "authentication": [
     "did:indy:sovrin:123456#verkey"
   ],
-  "serviceEndpoint": [
+  "service": [
     {
       "id": "did:indy:sovrin:123456#didcomm",
       "type": "didcomm-messaging",
@@ -172,17 +172,17 @@ If clients want to continue to retrieve and use the `endpoint` [[ref: ATTRIB]] t
 
 ``` json
 "diddocContent" : {
-    "@context" : [ "https://identity.foundation/didcomm-messaging/service-endpoint/v1" ],
-    "serviceEndpoint": [
-        {
-          "id": "did:indy:<namespace>:<dest>#didcomm",
-          "type": "didcomm-messaging",
-          "serviceEndpoint": "<ENDPOINT>",
-          "recipientKeys": [ "#verkey" ]
-          "routingKeys": [ ]
-        }
-    ]
-  }
+  "@context" : [ "https://identity.foundation/didcomm-messaging/service-endpoint/v1" ],
+  "service": [
+    {
+      "id": "did:indy:<namespace>:<dest>#didcomm",
+      "type": "didcomm-messaging",
+      "serviceEndpoint": "<ENDPOINT>",
+      "recipientKeys": [ "#verkey" ],
+      "routingKeys": [ ]
+    }
+  ]
+}
 ```
 
 The DIDDoc produced by the [[ref: NYM]] and "endpoint" [[ref: ATTRIB]] would be created using the DIDDoc Assembly Rules and using the `diddocContent` from the [[ref: ATTRIB]] instead of the [[ref: NYM]] item.
@@ -234,7 +234,7 @@ If the parameter `versionTime` is used, the `GET_NYM` transaction is called with
 
 ### Deactivate
 
-Deactivtion of a `did:indy` DID is done by setting the [[ref: NYM]] verkey to null. Once done, the DIDDoc is not found (per 
+Deactivation of a `did:indy` DID is done by setting the [[ref: NYM]] verkey to null. Once done, the DIDDoc is not found (per
 the [DIDDoc Assembly Rules](#diddoc-assembly-steps)) and the [[ref: NYM]] cannot be updated again.
 
 ::: warning dead link
